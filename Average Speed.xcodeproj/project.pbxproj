@@ -14,6 +14,9 @@
 		9D954D331EDD908C008D50A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D954D311EDD908C008D50A2 /* LaunchScreen.storyboard */; };
 		9D954D3E1EDD908C008D50A2 /* Average_SpeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D954D3D1EDD908C008D50A2 /* Average_SpeedTests.swift */; };
 		9D954D491EDD908C008D50A2 /* Average_SpeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D954D481EDD908C008D50A2 /* Average_SpeedUITests.swift */; };
+		9DFEC14C1EDEFAF0008A1985 /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFEC14B1EDEFAF0008A1985 /* DetailedViewController.swift */; };
+		9DFEC14E1EDF7F0F008A1985 /* Drive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFEC14D1EDF7F0F008A1985 /* Drive.swift */; };
+		9DFEC1501EDF8ACA008A1985 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFEC14F1EDF8ACA008A1985 /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		9D954D441EDD908C008D50A2 /* Average SpeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Average SpeedUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D954D481EDD908C008D50A2 /* Average_SpeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Average_SpeedUITests.swift; sourceTree = "<group>"; };
 		9D954D4A1EDD908C008D50A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DFEC14B1EDEFAF0008A1985 /* DetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
+		9DFEC14D1EDF7F0F008A1985 /* Drive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drive.swift; sourceTree = "<group>"; };
+		9DFEC14F1EDF8ACA008A1985 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +104,14 @@
 			isa = PBXGroup;
 			children = (
 				9D954D281EDD908C008D50A2 /* AppDelegate.swift */,
-				9D954D2A1EDD908C008D50A2 /* ViewController.swift */,
-				9D954D2C1EDD908C008D50A2 /* Main.storyboard */,
 				9D954D2F1EDD908C008D50A2 /* Assets.xcassets */,
-				9D954D311EDD908C008D50A2 /* LaunchScreen.storyboard */,
+				9DFEC14B1EDEFAF0008A1985 /* DetailedViewController.swift */,
 				9D954D341EDD908C008D50A2 /* Info.plist */,
+				9D954D311EDD908C008D50A2 /* LaunchScreen.storyboard */,
+				9D954D2C1EDD908C008D50A2 /* Main.storyboard */,
+				9D954D2A1EDD908C008D50A2 /* ViewController.swift */,
+				9DFEC14D1EDF7F0F008A1985 /* Drive.swift */,
+				9DFEC14F1EDF8ACA008A1985 /* Location.swift */,
 			);
 			path = "Average Speed";
 			sourceTree = "<group>";
@@ -193,7 +202,13 @@
 				TargetAttributes = {
 					9D954D241EDD908C008D50A2 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 5EK9G32TBN;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					9D954D381EDD908C008D50A2 = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -259,7 +274,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DFEC14E1EDF7F0F008A1985 /* Drive.swift in Sources */,
 				9D954D2B1EDD908C008D50A2 /* ViewController.swift in Sources */,
+				9DFEC1501EDF8ACA008A1985 /* Location.swift in Sources */,
+				9DFEC14C1EDEFAF0008A1985 /* DetailedViewController.swift in Sources */,
 				9D954D291EDD908C008D50A2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5EK9G32TBN;
 				INFOPLIST_FILE = "Average Speed/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "MoApps.Average-Speed";
@@ -424,6 +443,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5EK9G32TBN;
 				INFOPLIST_FILE = "Average Speed/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "MoApps.Average-Speed";
@@ -505,6 +525,7 @@
 				9D954D4F1EDD908C008D50A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9D954D501EDD908C008D50A2 /* Build configuration list for PBXNativeTarget "Average SpeedTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +534,7 @@
 				9D954D521EDD908C008D50A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9D954D531EDD908C008D50A2 /* Build configuration list for PBXNativeTarget "Average SpeedUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +543,7 @@
 				9D954D551EDD908C008D50A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
