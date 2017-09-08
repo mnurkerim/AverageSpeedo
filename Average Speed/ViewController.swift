@@ -73,11 +73,6 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-    
-        //performSegue(withIdentifier: "DetailViewSegue", sender: self)
-        
-//        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailedViewController
-//        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func startLocationUpdates() {
@@ -141,13 +136,6 @@ class ViewController: UIViewController {
         }
         
         savedDrive?.locations = NSOrderedSet(array: savedLocations)
-        
-        // 3
-//        var error: NSError?
-//        let success = managedObjectContext!.save(&error)
-//        if !success {
-//            println("Could not save the run!")
-//        }
     }
     
     func saveActionHandler(action: UIAlertAction) {
@@ -161,7 +149,6 @@ class ViewController: UIViewController {
     func discardActionHandler(action: UIAlertAction) {
         self.navigationController?.popToRootViewController(animated: true)
     }
-
 }
 
 // MARK: - CLLocationManagerDelegate
