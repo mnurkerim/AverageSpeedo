@@ -107,10 +107,11 @@ class DetailedViewController: UIViewController, MKMapViewDelegate {
             // No locations were found!
             mapView.isHidden = true
             
-            UIAlertView(title: "Error",
-                        message: "Sorry, this run has no locations saved",
-                        delegate:nil,
-                        cancelButtonTitle: "OK").show()
+            let alertController = UIAlertController(title: "Error", message: "Sorry, this run has no locations saved?", preferredStyle: .actionSheet)
+            let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+            alertController.addAction(okayAction)
+            
+            self.present(alertController, animated: true, completion: nil)
         }
     }
 
