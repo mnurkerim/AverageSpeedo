@@ -14,5 +14,4 @@ class Location: NSObject {
     var latitude: NSNumber!
     var longitude: NSNumber!
     var drive: Drive!
-    
 }

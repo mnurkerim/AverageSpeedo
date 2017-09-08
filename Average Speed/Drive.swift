@@ -9,10 +9,9 @@
 import UIKit
 
 class Drive: NSObject {
-    
+
     var duration: NSNumber!
     var distance: NSNumber!
     var timestamp: NSDate!
     var locations: NSOrderedSet!
-    
 }
