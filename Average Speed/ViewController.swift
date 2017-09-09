@@ -21,20 +21,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var stopButton: UIButton!
 
     var seconds = 0.0
-    var distance = 0.0
+    var distance = Measurement(value: 0, unit: UnitLength.meters)
 
     var savedDrive: Drive?
 
-    lazy var locationManager: CLLocationManager = {
-        var _locationManager = CLLocationManager()
-        _locationManager.delegate = self
-        _locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        _locationManager.activityType = .automotiveNavigation
-
-        // Movement threshold for new events
-        _locationManager.distanceFilter = kCLDistanceFilterNone
-        return _locationManager
-    }()
+    private let locationManager = LocationManager.shared
 
     lazy var locations = [CLLocation]()
     lazy var timer = Timer()
@@ -48,35 +39,39 @@ class ViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        timer.invalidate()
     }
 
-    func eachSecond(timer: Timer) {
+    func eachSecond() {
         seconds += 1
-        let secondsQuantity = HKQuantity(unit: HKUnit.second(), doubleValue: seconds)
-        timeLabel.text = "Time: " + secondsQuantity.description
-        let distanceQuantity = HKQuantity(unit: HKUnit.meter(), doubleValue: distance)
-        distanceLabel.text = "Distance: " + distanceQuantity.description
-
-        let paceUnit = HKUnit.second().unitDivided(by: HKUnit.meter())
-        let paceQuantity = HKQuantity(unit: paceUnit, doubleValue: seconds / distance)
-        paceLabel.text = "Pace: " + paceQuantity.description
-
-        averageSpeedLabel.text = String(format: "Average Speed: %.2f mph", ((distance / seconds) * 2.23693629))
+        updateDisplay()
+    }
+    
+    private func updateDisplay() {
+        let formattedDistance = FormatDisplay.distance(distance)
+        let formattedTime = FormatDisplay.time(Int(seconds))
+        let formattedPace = FormatDisplay.pace(distance: distance,
+                                               seconds: Int(seconds),
+                                               outputUnit: UnitSpeed.minutesPerMile)
+        
+        distanceLabel.text = "Distance:  \(formattedDistance)"
+        timeLabel.text = "Time:  \(formattedTime)"
+        paceLabel.text = "Pace:  \(formattedPace)"
+        averageSpeedLabel.text = String(format: "Average Speed: %.2f mph", ((distance.value / seconds) * 2.23693629))
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
 
-    func startLocationUpdates() {
-        // Here, the location manager will be lazily instantiated
+    private func startLocationUpdates() {
+        locationManager.delegate = self
+        locationManager.activityType = .fitness
+        locationManager.distanceFilter = 10
         locationManager.startUpdatingLocation()
     }
 
@@ -94,20 +89,17 @@ class ViewController: UIViewController {
         startLocationUpdates()
 
         seconds = 0.0
-        distance = 0.0
+        distance = Measurement(value: 0, unit: UnitLength.meters)
 
         //mapView.hidden = false
     }
 
     @IBAction func stopPressed() {
-        seconds = 0.0
-        distance = 0.0
-
-        locationManager.stopUpdatingLocation()
-        timer.invalidate()
-
         stopButton.isHidden = true
         startButton.isHidden = false
+
+        timer.invalidate()
+        locationManager.stopUpdatingLocation()
 
         let alertController = UIAlertController(title: "Tracking Stopped", message: "Save or discard this session?", preferredStyle: .actionSheet)
         let saveAction = UIAlertAction(title: "Save", style: .default, handler: saveActionHandler)
@@ -119,23 +111,22 @@ class ViewController: UIViewController {
     }
 
     func saveDrive() {
-        // 1
-        savedDrive = Drive()
-        savedDrive?.distance = self.distance as NSNumber
-        savedDrive?.duration = self.seconds as NSNumber
-        savedDrive?.timestamp = NSDate()
+        let newDrive = Drive(context: CoreDataStack.context)
+        newDrive.distance = self.distance.value
+        newDrive.duration = Int16(self.seconds as Double)
+        newDrive.timestamp = NSDate()
 
-        // 2
-        var savedLocations = [Location]()
         for location in locations {
-            let savedLocation = Location()
+            let savedLocation = Location(context: CoreDataStack.context)
             savedLocation.timestamp = location.timestamp as NSDate
-            savedLocation.latitude = location.coordinate.latitude as NSNumber
-            savedLocation.longitude = location.coordinate.longitude as NSNumber
-            savedLocations.append(savedLocation)
+            savedLocation.latitude = location.coordinate.latitude
+            savedLocation.longitude = location.coordinate.longitude
+            newDrive.addToLocations(savedLocation)
         }
-
-        savedDrive?.locations = NSOrderedSet(array: savedLocations)
+        
+        CoreDataStack.saveContext()
+        
+        savedDrive = newDrive
     }
 
     func saveActionHandler(action: UIAlertAction) {
@@ -153,18 +144,18 @@ class ViewController: UIViewController {
 
 // MARK: - CLLocationManagerDelegate
 extension ViewController: CLLocationManagerDelegate {
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        for location in locations {
-            if location.horizontalAccuracy < 20 {
-                //update distance
-                if self.locations.count > 0 {
-                    distance += location.distance(from: self.locations.last!)
-                    speedLabel.text = String(format: "Speed: %.1f mph", (location.speed * 2.23693629))
-                }
-
-                //save location
-                self.locations.append(location)
+        for newLocation in locations {
+            let howRecent = newLocation.timestamp.timeIntervalSinceNow
+            guard newLocation.horizontalAccuracy < 20 && abs(howRecent) < 10 else { continue }
+            
+            if let lastLocation = self.locations.last {
+                let delta = newLocation.distance(from: lastLocation)
+                distance = distance + Measurement(value: delta, unit: UnitLength.meters)
             }
+            
+            self.locations.append(newLocation)
         }
     }
 }

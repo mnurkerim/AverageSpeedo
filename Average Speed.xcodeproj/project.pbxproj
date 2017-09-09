@@ -14,9 +14,12 @@
 		9D954D331EDD908C008D50A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D954D311EDD908C008D50A2 /* LaunchScreen.storyboard */; };
 		9D954D3E1EDD908C008D50A2 /* Average_SpeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D954D3D1EDD908C008D50A2 /* Average_SpeedTests.swift */; };
 		9D954D491EDD908C008D50A2 /* Average_SpeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D954D481EDD908C008D50A2 /* Average_SpeedUITests.swift */; };
+		9DB8B5451F635BCA00FBAFB2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8B5441F635BCA00FBAFB2 /* CoreDataStack.swift */; };
+		9DB8B5481F635C5C00FBAFB2 /* AverageSpeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8B5461F635C5C00FBAFB2 /* AverageSpeed.xcdatamodeld */; };
+		9DB8B54A1F63692A00FBAFB2 /* UnitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8B5491F63692A00FBAFB2 /* UnitExtensions.swift */; };
+		9DB8B54C1F63695100FBAFB2 /* FormatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8B54B1F63695100FBAFB2 /* FormatDisplay.swift */; };
+		9DB8B54E1F63704F00FBAFB2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8B54D1F63704F00FBAFB2 /* LocationManager.swift */; };
 		9DFEC14C1EDEFAF0008A1985 /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFEC14B1EDEFAF0008A1985 /* DetailedViewController.swift */; };
-		9DFEC14E1EDF7F0F008A1985 /* Drive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFEC14D1EDF7F0F008A1985 /* Drive.swift */; };
-		9DFEC1501EDF8ACA008A1985 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFEC14F1EDF8ACA008A1985 /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,9 +53,12 @@
 		9D954D441EDD908C008D50A2 /* Average SpeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Average SpeedUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D954D481EDD908C008D50A2 /* Average_SpeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Average_SpeedUITests.swift; sourceTree = "<group>"; };
 		9D954D4A1EDD908C008D50A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DB8B5441F635BCA00FBAFB2 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		9DB8B5471F635C5C00FBAFB2 /* AverageSpeed.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AverageSpeed.xcdatamodel; sourceTree = "<group>"; };
+		9DB8B5491F63692A00FBAFB2 /* UnitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitExtensions.swift; sourceTree = "<group>"; };
+		9DB8B54B1F63695100FBAFB2 /* FormatDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatDisplay.swift; sourceTree = "<group>"; };
+		9DB8B54D1F63704F00FBAFB2 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		9DFEC14B1EDEFAF0008A1985 /* DetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
-		9DFEC14D1EDF7F0F008A1985 /* Drive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drive.swift; sourceTree = "<group>"; };
-		9DFEC14F1EDF8ACA008A1985 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,7 @@
 		9D954D271EDD908C008D50A2 /* Average Speed */ = {
 			isa = PBXGroup;
 			children = (
+				9DB8B5431F635BCA00FBAFB2 /* CoreData */,
 				9D954D281EDD908C008D50A2 /* AppDelegate.swift */,
 				9D954D2F1EDD908C008D50A2 /* Assets.xcassets */,
 				9DFEC14B1EDEFAF0008A1985 /* DetailedViewController.swift */,
@@ -110,8 +117,9 @@
 				9D954D311EDD908C008D50A2 /* LaunchScreen.storyboard */,
 				9D954D2C1EDD908C008D50A2 /* Main.storyboard */,
 				9D954D2A1EDD908C008D50A2 /* ViewController.swift */,
-				9DFEC14D1EDF7F0F008A1985 /* Drive.swift */,
-				9DFEC14F1EDF8ACA008A1985 /* Location.swift */,
+				9DB8B5491F63692A00FBAFB2 /* UnitExtensions.swift */,
+				9DB8B54B1F63695100FBAFB2 /* FormatDisplay.swift */,
+				9DB8B54D1F63704F00FBAFB2 /* LocationManager.swift */,
 			);
 			path = "Average Speed";
 			sourceTree = "<group>";
@@ -132,6 +140,15 @@
 				9D954D4A1EDD908C008D50A2 /* Info.plist */,
 			);
 			path = "Average SpeedUITests";
+			sourceTree = "<group>";
+		};
+		9DB8B5431F635BCA00FBAFB2 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				9DB8B5441F635BCA00FBAFB2 /* CoreDataStack.swift */,
+				9DB8B5461F635C5C00FBAFB2 /* AverageSpeed.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,11 +291,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DFEC14E1EDF7F0F008A1985 /* Drive.swift in Sources */,
 				9D954D2B1EDD908C008D50A2 /* ViewController.swift in Sources */,
-				9DFEC1501EDF8ACA008A1985 /* Location.swift in Sources */,
+				9DB8B54C1F63695100FBAFB2 /* FormatDisplay.swift in Sources */,
+				9DB8B54A1F63692A00FBAFB2 /* UnitExtensions.swift in Sources */,
+				9DB8B5451F635BCA00FBAFB2 /* CoreDataStack.swift in Sources */,
+				9DB8B54E1F63704F00FBAFB2 /* LocationManager.swift in Sources */,
 				9DFEC14C1EDEFAF0008A1985 /* DetailedViewController.swift in Sources */,
 				9D954D291EDD908C008D50A2 /* AppDelegate.swift in Sources */,
+				9DB8B5481F635C5C00FBAFB2 /* AverageSpeed.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +566,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9DB8B5461F635C5C00FBAFB2 /* AverageSpeed.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9DB8B5471F635C5C00FBAFB2 /* AverageSpeed.xcdatamodel */,
+			);
+			currentVersion = 9DB8B5471F635C5C00FBAFB2 /* AverageSpeed.xcdatamodel */;
+			path = AverageSpeed.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9D954D1D1EDD908C008D50A2 /* Project object */;
 }

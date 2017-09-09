@@ -46,73 +46,74 @@ class DetailedViewController: UIViewController, MKMapViewDelegate {
         loadMap()
     }
 
-    func mapRegion() -> MKCoordinateRegion {
-        let initialLoc = drive?.locations.firstObject as! Location
-
-        var minLat = initialLoc.latitude.doubleValue
-        var minLng = initialLoc.longitude.doubleValue
-        var maxLat = minLat
-        var maxLng = minLng
-
-        let locations = drive?.locations.array as! [Location]
-
-        for location in locations {
-            minLat = min(minLat, location.latitude.doubleValue)
-            minLng = min(minLng, location.longitude.doubleValue)
-            maxLat = max(maxLat, location.latitude.doubleValue)
-            maxLng = max(maxLng, location.longitude.doubleValue)
+    private func mapRegion() -> MKCoordinateRegion? {
+        guard
+            let locations = drive?.locations,
+            locations.count > 0
+            else {
+                return nil
         }
-
-        return MKCoordinateRegion(
-                center: CLLocationCoordinate2D(latitude: (minLat + maxLat) / 2,
-                        longitude: (minLng + maxLng) / 2),
-                span: MKCoordinateSpan(latitudeDelta: (maxLat - minLat) * 1.1,
-                        longitudeDelta: (maxLng - minLng) * 1.1))
+        
+        let latitudes = locations.map { location -> Double in
+            let location = location as! Location
+            return location.latitude
+        }
+        
+        let longitudes = locations.map { location -> Double in
+            let location = location as! Location
+            return location.longitude
+        }
+        
+        let maxLat = latitudes.max()!
+        let minLat = latitudes.min()!
+        let maxLong = longitudes.max()!
+        let minLong = longitudes.min()!
+        
+        let center = CLLocationCoordinate2D(latitude: (minLat + maxLat) / 2,
+                                            longitude: (minLong + maxLong) / 2)
+        let span = MKCoordinateSpan(latitudeDelta: (maxLat - minLat) * 1.3,
+                                    longitudeDelta: (maxLong - minLong) * 1.3)
+        return MKCoordinateRegion(center: center, span: span)
     }
 
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        if !overlay.isKind(of: MKPolyline.self) {
-            //Do nothing
+        guard let polyline = overlay as? MKPolyline else {
+            return MKOverlayRenderer(overlay: overlay)
         }
-
-        let polyline = overlay as! MKPolyline
         let renderer = MKPolylineRenderer(polyline: polyline)
-        renderer.strokeColor = UIColor.black
-        renderer.lineWidth = 6
+        renderer.strokeColor = .black
+        renderer.lineWidth = 3
         return renderer
     }
-
-    func polyline() -> MKPolyline {
-        var coords = [CLLocationCoordinate2D]()
-
-        let locations = drive!.locations!.array as! [Location]
-        for location in locations {
-            coords.append(CLLocationCoordinate2D(latitude: location.latitude.doubleValue,
-                    longitude: location.longitude.doubleValue))
+    
+    private func polyLine() -> MKPolyline {
+        guard let locations = drive?.locations else {
+            return MKPolyline()
         }
-
-        return MKPolyline(coordinates: &coords, count: drive!.locations!.count)
+        
+        let coords: [CLLocationCoordinate2D] = locations.map { location in
+            let location = location as! Location
+            return CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+        }
+        return MKPolyline(coordinates: coords, count: coords.count)
     }
-
+    
     func loadMap() {
-        if drive!.locations.count > 0 {
-            mapView.isHidden = false
-
-            // Set the map bounds
-            mapView.region = mapRegion()
-
-            // Make the line(s!) on the map
-            mapView.add(polyline())
-        } else {
-            // No locations were found!
-            mapView.isHidden = true
-
-            let alertController = UIAlertController(title: "Error", message: "Sorry, this run has no locations saved!", preferredStyle: .actionSheet)
-            let okayAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
-            alertController.addAction(okayAction)
-
-            self.present(alertController, animated: true, completion: nil)
+        guard
+            let locations = drive?.locations,
+            locations.count > 0,
+            let region = mapRegion()
+            else {
+                let alert = UIAlertController(title: "Error",
+                                              message: "Sorry, this run has no locations saved",
+                                              preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                present(alert, animated: true)
+                return
         }
+        
+        mapView.setRegion(region, animated: true)
+        mapView.add(polyLine())
     }
 
     /*
