@@ -54,10 +54,13 @@ class DrivesTableViewController: UITableViewController {
         dateFormatter.dateFormat = "dd/MM/yyyy hh:mm:ss"
         dateFormatter.locale = Locale.init(identifier: "en_GB")
         
-        let date = drives[indexPath.row].timestamp
+        let drive = drives[indexPath.row]
+        let timestamp = drive.timestamp
+        let formattedDuration = FormatDisplay.time(Int(drive.duration))
+        let formattedDistance = FormatDisplay.distance(Measurement.init(value: drive.distance, unit: UnitLength.meters).value)
         
-        cell.textLabel?.text = dateFormatter.string(from: date! as Date)
-        // Configure the cell...
+        cell.textLabel?.text = dateFormatter.string(from: timestamp! as Date)
+        cell.detailTextLabel?.text = "Distance: \(formattedDistance) | Duration: \(formattedDuration)"
 
         return cell
     }
