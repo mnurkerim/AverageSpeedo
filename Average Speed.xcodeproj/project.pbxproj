@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D4780F11F64A0FA00A434CC /* DrivesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4780F01F64A0FA00A434CC /* DrivesTableViewController.swift */; };
 		9D954D291EDD908C008D50A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D954D281EDD908C008D50A2 /* AppDelegate.swift */; };
 		9D954D2B1EDD908C008D50A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D954D2A1EDD908C008D50A2 /* ViewController.swift */; };
 		9D954D2E1EDD908C008D50A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D954D2C1EDD908C008D50A2 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D4780F01F64A0FA00A434CC /* DrivesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrivesTableViewController.swift; sourceTree = "<group>"; };
 		9D954D251EDD908C008D50A2 /* Average Speed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Average Speed.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D954D281EDD908C008D50A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D954D2A1EDD908C008D50A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				9DB8B5491F63692A00FBAFB2 /* UnitExtensions.swift */,
 				9DB8B54B1F63695100FBAFB2 /* FormatDisplay.swift */,
 				9DB8B54D1F63704F00FBAFB2 /* LocationManager.swift */,
+				9D4780F01F64A0FA00A434CC /* DrivesTableViewController.swift */,
 			);
 			path = "Average Speed";
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				9DB8B54A1F63692A00FBAFB2 /* UnitExtensions.swift in Sources */,
 				9DB8B5451F635BCA00FBAFB2 /* CoreDataStack.swift in Sources */,
 				9DB8B54E1F63704F00FBAFB2 /* LocationManager.swift in Sources */,
+				9D4780F11F64A0FA00A434CC /* DrivesTableViewController.swift in Sources */,
 				9DFEC14C1EDEFAF0008A1985 /* DetailedViewController.swift in Sources */,
 				9D954D291EDD908C008D50A2 /* AppDelegate.swift in Sources */,
 				9DB8B5481F635C5C00FBAFB2 /* AverageSpeed.xcdatamodeld in Sources */,

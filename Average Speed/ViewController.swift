@@ -153,6 +153,7 @@ extension ViewController: CLLocationManagerDelegate {
             if let lastLocation = self.locations.last {
                 let delta = newLocation.distance(from: lastLocation)
                 distance = distance + Measurement(value: delta, unit: UnitLength.meters)
+                speedLabel.text = String(format:"Speed: %.1f mph", (newLocation.speed * 2.23693629))
             }
             
             self.locations.append(newLocation)
