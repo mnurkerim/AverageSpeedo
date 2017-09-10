@@ -60,8 +60,8 @@ class DrivesTableViewController: UITableViewController {
         let formattedDuration = FormatDisplay.time(Int(drive.duration))
         let formattedDistance = FormatDisplay.distance(Measurement.init(value: drive.distance, unit: UnitLength.meters).value)
         
-        cell.textLabel?.text = dateFormatter.string(from: timestamp! as Date)
-        cell.detailTextLabel?.text = "Distance: \(formattedDistance) | Duration: \(formattedDuration)"
+        cell.textLabel?.text = "Distance: \(formattedDistance) | Duration: \(formattedDuration)"
+        cell.detailTextLabel?.text = dateFormatter.string(from: timestamp! as Date)
 
         return cell
     }
@@ -81,17 +81,21 @@ class DrivesTableViewController: UITableViewController {
     }
     */
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            CoreDataStack.context.delete(drives[indexPath.row])
+            do {
+                try CoreDataStack.context.save()
+                print("Deleted from index \(indexPath.row)")
+            } catch {
+                print(error)
+            }
             // Delete the row from the data source
+            drives.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
 
     /*
     // Override to support rearranging the table view.
