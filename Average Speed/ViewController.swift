@@ -53,10 +53,18 @@ class ViewController: UIViewController {
                                                seconds: Int(seconds),
                                                outputUnit: UnitSpeed.minutesPerMile)
         
-        distanceLabel.text = "Distance:  \(formattedDistance)"
-        timeLabel.text = "Time:  \(formattedTime)"
-        paceLabel.text = "Pace:  \(formattedPace)"
-        averageSpeedLabel.text = String(format: "Average Speed: %.2f mph", ((distance.value / seconds) * 2.23693629))
+        distanceLabel.text = "\(formattedDistance)"
+        timeLabel.text = "\(formattedTime)"
+        paceLabel.text = "\(formattedPace)"
+        averageSpeedLabel.text = String(format: "%.2f mph", ((distance.value / seconds) * 2.23693629))
+    }
+    
+    private func resetUiValues() {
+        distanceLabel.text = "0.00"
+        timeLabel.text = "00:00:00"
+        paceLabel.text = "0.00"
+        averageSpeedLabel.text = "0.00"
+        speedLabel.text = "0.00"
     }
 
     override func viewDidLoad() {
@@ -70,7 +78,7 @@ class ViewController: UIViewController {
 
     private func startLocationUpdates() {
         locationManager.delegate = self
-        locationManager.activityType = .fitness
+        locationManager.activityType = .automotiveNavigation
         locationManager.distanceFilter = 10
         locationManager.startUpdatingLocation()
     }
@@ -138,6 +146,7 @@ class ViewController: UIViewController {
     }
 
     func discardActionHandler(action: UIAlertAction) {
+        resetUiValues()
         self.navigationController?.popToRootViewController(animated: true)
     }
 }
@@ -153,7 +162,7 @@ extension ViewController: CLLocationManagerDelegate {
             if let lastLocation = self.locations.last {
                 let delta = newLocation.distance(from: lastLocation)
                 distance = distance + Measurement(value: delta, unit: UnitLength.meters)
-                speedLabel.text = String(format:"Speed: %.1f mph", (newLocation.speed * 2.23693629))
+                speedLabel.text = String(format:"%.1f mph", (newLocation.speed * 2.23693629))
             }
             
             self.locations.append(newLocation)

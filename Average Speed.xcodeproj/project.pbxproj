@@ -15,6 +15,7 @@
 		9D954D331EDD908C008D50A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D954D311EDD908C008D50A2 /* LaunchScreen.storyboard */; };
 		9D954D3E1EDD908C008D50A2 /* Average_SpeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D954D3D1EDD908C008D50A2 /* Average_SpeedTests.swift */; };
 		9D954D491EDD908C008D50A2 /* Average_SpeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D954D481EDD908C008D50A2 /* Average_SpeedUITests.swift */; };
+		9DA4850C1F64EBF8005042CF /* MulticolorPolyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA4850B1F64EBF8005042CF /* MulticolorPolyline.swift */; };
 		9DB8B5451F635BCA00FBAFB2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8B5441F635BCA00FBAFB2 /* CoreDataStack.swift */; };
 		9DB8B5481F635C5C00FBAFB2 /* AverageSpeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8B5461F635C5C00FBAFB2 /* AverageSpeed.xcdatamodeld */; };
 		9DB8B54A1F63692A00FBAFB2 /* UnitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8B5491F63692A00FBAFB2 /* UnitExtensions.swift */; };
@@ -55,6 +56,7 @@
 		9D954D441EDD908C008D50A2 /* Average SpeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Average SpeedUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D954D481EDD908C008D50A2 /* Average_SpeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Average_SpeedUITests.swift; sourceTree = "<group>"; };
 		9D954D4A1EDD908C008D50A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DA4850B1F64EBF8005042CF /* MulticolorPolyline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticolorPolyline.swift; sourceTree = "<group>"; };
 		9DB8B5441F635BCA00FBAFB2 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		9DB8B5471F635C5C00FBAFB2 /* AverageSpeed.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AverageSpeed.xcdatamodel; sourceTree = "<group>"; };
 		9DB8B5491F63692A00FBAFB2 /* UnitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitExtensions.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				9DB8B54B1F63695100FBAFB2 /* FormatDisplay.swift */,
 				9DB8B54D1F63704F00FBAFB2 /* LocationManager.swift */,
 				9D4780F01F64A0FA00A434CC /* DrivesTableViewController.swift */,
+				9DA4850B1F64EBF8005042CF /* MulticolorPolyline.swift */,
 			);
 			path = "Average Speed";
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D954D2B1EDD908C008D50A2 /* ViewController.swift in Sources */,
+				9DA4850C1F64EBF8005042CF /* MulticolorPolyline.swift in Sources */,
 				9DB8B54C1F63695100FBAFB2 /* FormatDisplay.swift in Sources */,
 				9DB8B54A1F63692A00FBAFB2 /* UnitExtensions.swift in Sources */,
 				9DB8B5451F635BCA00FBAFB2 /* CoreDataStack.swift in Sources */,
