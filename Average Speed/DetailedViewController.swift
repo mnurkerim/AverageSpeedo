@@ -15,6 +15,11 @@ class DetailedViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
 
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var avgSpeedLabel: UILabel!
+    @IBOutlet weak var paceLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.delegate = self
@@ -29,19 +34,20 @@ class DetailedViewController: UIViewController, MKMapViewDelegate {
     }
 
     func configureView() {
-//        let distanceQuantity = HKQuantity(unit: HKUnit.meterUnit(), doubleValue: run.distance.doubleValue)
-//        distanceLabel.text = "Distance: " + distanceQuantity.description
-//        
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateStyle = .MediumStyle
-//        dateLabel.text = dateFormatter.stringFromDate(run.timestamp)
-//        
-//        let secondsQuantity = HKQuantity(unit: HKUnit.secondUnit(), doubleValue: run.duration.doubleValue)
-//        timeLabel.text = "Time: " + secondsQuantity.description
-//        
-//        let paceUnit = HKUnit.secondUnit().unitDividedByUnit(HKUnit.meterUnit())
-//        let paceQuantity = HKQuantity(unit: paceUnit, doubleValue: run.duration.doubleValue / run.distance.doubleValue)
-//        paceLabel.text = "Pace: " + paceQuantity.description
+        if let drv: Drive = self.drive {
+            let distanceMes = Measurement(value: drv.distance, unit: UnitLength.meters)
+            
+            let formattedDistance = FormatDisplay.distance(drv.distance)
+            let formattedTime = FormatDisplay.time(Int(drv.duration))
+            let formattedPace = FormatDisplay.pace(distance: distanceMes,
+                                                   seconds: Int(drv.duration),
+                                                   outputUnit: UnitSpeed.minutesPerMile)
+            
+            distanceLabel.text = "\(formattedDistance)"
+            timeLabel.text = "\(formattedTime)"
+            paceLabel.text = "\(formattedPace)"
+            avgSpeedLabel.text = String(format: "%.2f mph", ((drv.distance / Double(drv.duration)) * 2.23693629))
+        }
 
         loadMap()
     }

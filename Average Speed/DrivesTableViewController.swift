@@ -17,7 +17,7 @@ class DrivesTableViewController: UITableViewController {
         super.viewDidLoad()
 
         do {
-            try drives = CoreDataStack.context.fetch(Drive.fetchRequest())
+            drives = try CoreDataStack.context.fetch(Drive.fetchRequest())
         } catch {
             print(error)
         }
@@ -52,7 +52,7 @@ class DrivesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy hh:mm:ss"
+        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm:ss"
         dateFormatter.locale = Locale.init(identifier: "en_GB")
         
         let drive = drives[indexPath.row]
