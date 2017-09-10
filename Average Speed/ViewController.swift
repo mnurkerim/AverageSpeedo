@@ -106,13 +106,17 @@ class ViewController: UIViewController {
         stopButton.isHidden = true
         startButton.isHidden = false
 
-        timer.invalidate()
-        locationManager.stopUpdatingLocation()
-
         let alertController = UIAlertController(title: "Tracking Stopped", message: "Save or discard this session?", preferredStyle: .actionSheet)
         let saveAction = UIAlertAction(title: "Save", style: .default, handler: saveActionHandler)
-        let discardAction = UIAlertAction(title: "Discard", style: .default, handler: discardActionHandler)
+        let discardAction = UIAlertAction(title: "Discard", style: .destructive, handler: discardActionHandler)
+        let resumeAction = UIAlertAction(title: "Resume", style: .default, handler: { _ in
+            self.stopButton.isHidden = false
+            self.startButton.isHidden = true
+            
+            self.startLocationUpdates()
+        })
         alertController.addAction(saveAction)
+        alertController.addAction(resumeAction)
         alertController.addAction(discardAction)
 
         self.present(alertController, animated: true, completion: nil)
@@ -133,20 +137,27 @@ class ViewController: UIViewController {
         }
         
         CoreDataStack.saveContext()
-        
         savedDrive = newDrive
     }
 
     func saveActionHandler(action: UIAlertAction) {
+        timer.invalidate()
+        locationManager.stopUpdatingLocation()
+        
         saveDrive()
-
+        resetUiValues()
+        
         let viewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailedViewController
         viewController.drive = savedDrive
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 
     func discardActionHandler(action: UIAlertAction) {
+        timer.invalidate()
+        locationManager.stopUpdatingLocation()
+        
         resetUiValues()
+        
         self.navigationController?.popToRootViewController(animated: true)
     }
 }
