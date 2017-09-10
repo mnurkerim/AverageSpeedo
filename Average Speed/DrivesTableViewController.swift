@@ -11,6 +11,7 @@ import UIKit
 class DrivesTableViewController: UITableViewController {
 
     var drives = [Drive]()
+    var selectedDrive: Drive?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +65,13 @@ class DrivesTableViewController: UITableViewController {
 
         return cell
     }
- 
+
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        selectedDrive = drives[indexPath.row]
+        print("Selecting drive at index \(indexPath.row)")
+
+        return indexPath
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -101,14 +108,17 @@ class DrivesTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if (segue.identifier == "CellToDetailView") {
+            let destination = segue.destination as! DetailedViewController
+            destination.drive = selectedDrive
+        }
     }
-    */
 
 }
