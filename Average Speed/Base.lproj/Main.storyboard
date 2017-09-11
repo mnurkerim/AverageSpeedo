@@ -174,10 +174,10 @@
             </objects>
             <point key="canvasLocation" x="1176.8" y="-445.72713643178412"/>
         </scene>
-        <!--Drives-->
+        <!--Routes-->
         <scene sceneID="gau-72-5t3">
             <objects>
-                <tableViewController title="Drives" id="Hhe-NX-ypl" customClass="DrivesTableViewController" customModule="Average_Speed" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Routes" id="Hhe-NX-ypl" customClass="DrivesTableViewController" customModule="Average_Speed" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="7QJ-49-UVG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -221,10 +221,10 @@
             </objects>
             <point key="canvasLocation" x="1177" y="405"/>
         </scene>
-        <!--Detail View-->
+        <!--Route View-->
         <scene sceneID="24D-VB-4oU">
             <objects>
-                <viewController storyboardIdentifier="DetailViewController" title="Detail View" id="lQq-1o-I58" customClass="DetailedViewController" customModule="Average_Speed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" title="Route View" id="lQq-1o-I58" customClass="DetailedViewController" customModule="Average_Speed" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TNz-Gg-ca1"/>
                         <viewControllerLayoutGuide type="bottom" id="3Cz-wM-i72"/>
@@ -336,7 +336,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Drive" id="4Th-6V-VFu"/>
+                    <navigationItem key="navigationItem" title="Route" id="4Th-6V-VFu"/>
                     <connections>
                         <outlet property="avgSpeedLabel" destination="bPA-vm-wKk" id="qgj-fo-JVg"/>
                         <outlet property="distanceLabel" destination="wFh-oq-Tdx" id="05j-Yj-4Ap"/>
@@ -367,6 +367,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nuZ-9w-HJv"/>
+        <segue reference="0gF-66-6Vz"/>
     </inferredMetricsTieBreakers>
 </document>

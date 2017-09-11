@@ -9,7 +9,7 @@
 import UIKit
 
 class DrivesTableViewController: UITableViewController {
-
+    
     var drives = [Drive]()
     var selectedDrive: Drive?
     
@@ -26,13 +26,15 @@ class DrivesTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-
-        print("View loaded")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return false
     }
 
     // MARK: - Table view data source
