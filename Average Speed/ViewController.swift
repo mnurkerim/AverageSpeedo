@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreLocation
-import HealthKit
 
 class ViewController: UIViewController {
 
