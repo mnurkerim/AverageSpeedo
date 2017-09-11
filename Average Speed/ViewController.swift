@@ -43,6 +43,13 @@ class ViewController: UIViewController {
 
     func eachSecond() {
         seconds += 1
+        
+        if let secondsInactive = UserDefaults.standard.object(forKey: "secondsInactive") as? Int {
+            print("App was inactive, adding seconds")
+            seconds += Double(secondsInactive)
+            UserDefaults.standard.removeObject(forKey: "secondsInactive")
+        }
+        
         updateDisplay()
     }
     
@@ -60,10 +67,10 @@ class ViewController: UIViewController {
     }
     
     private func resetUiValues() {
+        averageSpeedLabel.text = "0.00"
         distanceLabel.text = "0.00"
         timeLabel.text = "00:00:00"
         paceLabel.text = "0.00"
-        averageSpeedLabel.text = "0.00"
         speedLabel.text = "0.00"
     }
 
@@ -79,7 +86,7 @@ class ViewController: UIViewController {
     private func startLocationUpdates() {
         locationManager.delegate = self
         locationManager.activityType = .automotiveNavigation
-        locationManager.distanceFilter = 10
+        locationManager.distanceFilter = kCLDistanceFilterNone
         locationManager.startUpdatingLocation()
     }
 
