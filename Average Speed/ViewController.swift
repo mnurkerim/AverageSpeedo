@@ -96,6 +96,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func startPressed() {
+        UserDefaults.standard.removeObject(forKey: "secondsInactive")
         startButton.isHidden = true
         stopButton.isHidden = false
 
