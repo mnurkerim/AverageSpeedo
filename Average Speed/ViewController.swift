@@ -31,8 +31,10 @@ class ViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        locationManager.requestAlwaysAuthorization()
-
+        
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.allowsBackgroundLocationUpdates = true
+        
         stopButton.isHidden = true
     }
 
@@ -173,9 +175,11 @@ class ViewController: UIViewController {
 extension ViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("Location updated: size = \(locations.count)")
+        
         for newLocation in locations {
-            let howRecent = newLocation.timestamp.timeIntervalSinceNow
-            guard newLocation.horizontalAccuracy < 20 && abs(howRecent) < 10 else { continue }
+            print("Accuracy = \(newLocation.horizontalAccuracy)")
+            guard newLocation.horizontalAccuracy < 40 else { continue }
             
             if let lastLocation = self.locations.last {
                 let delta = newLocation.distance(from: lastLocation)
