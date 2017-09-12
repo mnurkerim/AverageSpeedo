@@ -44,13 +44,6 @@ class ViewController: UIViewController {
 
     func eachSecond() {
         seconds += 1
-        
-        if let secondsInactive = UserDefaults.standard.object(forKey: "secondsInactive") as? Int {
-            print("App was inactive, adding seconds")
-            seconds += Double(secondsInactive)
-            UserDefaults.standard.removeObject(forKey: "secondsInactive")
-        }
-        
         updateDisplay()
     }
     
@@ -87,7 +80,7 @@ class ViewController: UIViewController {
     private func startLocationUpdates() {
         locationManager.delegate = self
         locationManager.activityType = .automotiveNavigation
-        locationManager.distanceFilter = kCLDistanceFilterNone
+        locationManager.distanceFilter = 5
         locationManager.startUpdatingLocation()
     }
 

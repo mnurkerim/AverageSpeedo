@@ -46,7 +46,7 @@
                                 <rect key="frame" x="118" y="606" width="140" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="25"/>
-                                <state key="normal" title="Stop Drive"/>
+                                <state key="normal" title="Stop Route"/>
                                 <connections>
                                     <action selector="stopPressed" destination="BYZ-38-t0r" eventType="touchDown" id="oHy-W1-hRV"/>
                                 </connections>
@@ -55,7 +55,7 @@
                                 <rect key="frame" x="118" y="606" width="140" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="25"/>
-                                <state key="normal" title="Start Drive"/>
+                                <state key="normal" title="Start Route"/>
                                 <connections>
                                     <action selector="startPressed" destination="BYZ-38-t0r" eventType="touchDown" id="rLt-K4-boI"/>
                                 </connections>
@@ -153,7 +153,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Average Speedo" id="hx1-uI-RTt">
-                        <barButtonItem key="rightBarButtonItem" title="Drives" id="DQ9-H4-8tH">
+                        <barButtonItem key="rightBarButtonItem" title="Routes" id="DQ9-H4-8tH">
                             <connections>
                                 <segue destination="Hhe-NX-ypl" kind="show" id="wE5-6W-84n"/>
                             </connections>
