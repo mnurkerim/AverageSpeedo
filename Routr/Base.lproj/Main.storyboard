@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Average Speedo-->
+        <!--Routr-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Average Speedo" id="BYZ-38-t0r" customClass="ViewController" customModule="Average_Speed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Routr" id="BYZ-38-t0r" customClass="ViewController" customModule="Routr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -152,7 +152,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Average Speedo" id="hx1-uI-RTt">
+                    <navigationItem key="navigationItem" title="Routr" id="hx1-uI-RTt">
                         <barButtonItem key="rightBarButtonItem" title="Routes" id="DQ9-H4-8tH">
                             <connections>
                                 <segue destination="Hhe-NX-ypl" kind="show" id="wE5-6W-84n"/>
@@ -177,7 +177,7 @@
         <!--Routes-->
         <scene sceneID="gau-72-5t3">
             <objects>
-                <tableViewController title="Routes" id="Hhe-NX-ypl" customClass="DrivesTableViewController" customModule="Average_Speed" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Routes" id="Hhe-NX-ypl" customClass="DrivesTableViewController" customModule="Routr" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="7QJ-49-UVG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -224,7 +224,7 @@
         <!--Route View-->
         <scene sceneID="24D-VB-4oU">
             <objects>
-                <viewController storyboardIdentifier="DetailViewController" title="Route View" id="lQq-1o-I58" customClass="DetailedViewController" customModule="Average_Speed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" title="Route View" id="lQq-1o-I58" customClass="DetailedViewController" customModule="Routr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TNz-Gg-ca1"/>
                         <viewControllerLayoutGuide type="bottom" id="3Cz-wM-i72"/>
