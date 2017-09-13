@@ -33,7 +33,7 @@ import CoreData
 class CoreDataStack {
 
     static let persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "AverageSpeed")
+        let container = NSPersistentContainer(name: "Routr")
         container.loadPersistentStores { (_, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")

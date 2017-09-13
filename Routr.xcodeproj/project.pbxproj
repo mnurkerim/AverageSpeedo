@@ -17,7 +17,7 @@
 		9D954D491EDD908C008D50A2 /* Average_SpeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D954D481EDD908C008D50A2 /* Average_SpeedUITests.swift */; };
 		9DA4850C1F64EBF8005042CF /* MulticolorPolyline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA4850B1F64EBF8005042CF /* MulticolorPolyline.swift */; };
 		9DB8B5451F635BCA00FBAFB2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8B5441F635BCA00FBAFB2 /* CoreDataStack.swift */; };
-		9DB8B5481F635C5C00FBAFB2 /* AverageSpeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8B5461F635C5C00FBAFB2 /* AverageSpeed.xcdatamodeld */; };
+		9DB8B5481F635C5C00FBAFB2 /* Routr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8B5461F635C5C00FBAFB2 /* Routr.xcdatamodeld */; };
 		9DB8B54A1F63692A00FBAFB2 /* UnitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8B5491F63692A00FBAFB2 /* UnitExtensions.swift */; };
 		9DB8B54C1F63695100FBAFB2 /* FormatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8B54B1F63695100FBAFB2 /* FormatDisplay.swift */; };
 		9DB8B54E1F63704F00FBAFB2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8B54D1F63704F00FBAFB2 /* LocationManager.swift */; };
@@ -58,7 +58,7 @@
 		9D954D4A1EDD908C008D50A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DA4850B1F64EBF8005042CF /* MulticolorPolyline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticolorPolyline.swift; sourceTree = "<group>"; };
 		9DB8B5441F635BCA00FBAFB2 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		9DB8B5471F635C5C00FBAFB2 /* AverageSpeed.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AverageSpeed.xcdatamodel; sourceTree = "<group>"; };
+		9DB8B5471F635C5C00FBAFB2 /* Routr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Routr.xcdatamodel; sourceTree = "<group>"; };
 		9DB8B5491F63692A00FBAFB2 /* UnitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitExtensions.swift; sourceTree = "<group>"; };
 		9DB8B54B1F63695100FBAFB2 /* FormatDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatDisplay.swift; sourceTree = "<group>"; };
 		9DB8B54D1F63704F00FBAFB2 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				9DB8B5441F635BCA00FBAFB2 /* CoreDataStack.swift */,
-				9DB8B5461F635C5C00FBAFB2 /* AverageSpeed.xcdatamodeld */,
+				9DB8B5461F635C5C00FBAFB2 /* Routr.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -306,7 +306,7 @@
 				9D4780F11F64A0FA00A434CC /* DrivesTableViewController.swift in Sources */,
 				9DFEC14C1EDEFAF0008A1985 /* DetailedViewController.swift in Sources */,
 				9D954D291EDD908C008D50A2 /* AppDelegate.swift in Sources */,
-				9DB8B5481F635C5C00FBAFB2 /* AverageSpeed.xcdatamodeld in Sources */,
+				9DB8B5481F635C5C00FBAFB2 /* Routr.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,13 +576,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		9DB8B5461F635C5C00FBAFB2 /* AverageSpeed.xcdatamodeld */ = {
+		9DB8B5461F635C5C00FBAFB2 /* Routr.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				9DB8B5471F635C5C00FBAFB2 /* AverageSpeed.xcdatamodel */,
+				9DB8B5471F635C5C00FBAFB2 /* Routr.xcdatamodel */,
 			);
-			currentVersion = 9DB8B5471F635C5C00FBAFB2 /* AverageSpeed.xcdatamodel */;
-			path = AverageSpeed.xcdatamodeld;
+			currentVersion = 9DB8B5471F635C5C00FBAFB2 /* Routr.xcdatamodel */;
+			path = Routr.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

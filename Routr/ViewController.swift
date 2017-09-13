@@ -34,8 +34,6 @@ class ViewController: UIViewController {
         
         locationManager.requestWhenInUseAuthorization()
         locationManager.allowsBackgroundLocationUpdates = true
-        
-        stopButton.isHidden = true
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -71,6 +69,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        stopButton.isHidden = true
     }
 
     override func viewDidAppear(_ animated: Bool) {
