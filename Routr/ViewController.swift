@@ -18,9 +18,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
+    
+    @IBOutlet weak var miniAvgSpeedLabel: UILabel!
+    @IBOutlet weak var miniTimeLabel: UILabel!
+    @IBOutlet weak var miniDistanceLabel: UILabel!
+    @IBOutlet weak var miniStartButton: UIButton!
+    @IBOutlet weak var resetButton: UIButton!
 
     var seconds = 0.0
     var distance = Measurement(value: 0, unit: UnitLength.meters)
+    
+    var miniSeconds = 0.0
+    var miniDistance = Measurement(value: 0, unit: UnitLength.meters)
 
     var savedDrive: Drive?
 
@@ -28,6 +37,7 @@ class ViewController: UIViewController {
 
     lazy var locations = [CLLocation]()
     lazy var timer = Timer()
+    lazy var miniTimer = Timer()
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -43,6 +53,20 @@ class ViewController: UIViewController {
     func eachSecond() {
         seconds += 1
         updateDisplay()
+    }
+    
+    func miniEachSecond() {
+        miniSeconds += 1
+        updateMiniDisplay()
+    }
+    
+    private func updateMiniDisplay() {
+        let formattedDistance = FormatDisplay.distance(miniDistance)
+        let formattedTime = FormatDisplay.time(Int(miniSeconds))
+        
+        miniDistanceLabel.text = "\(formattedDistance)"
+        miniTimeLabel.text = "\(formattedTime)"
+        miniAvgSpeedLabel.text = String(format: "%.2f mph", ((miniDistance.value / miniSeconds) * 2.23693629))
     }
     
     private func updateDisplay() {
@@ -61,15 +85,28 @@ class ViewController: UIViewController {
     private func resetUiValues() {
         averageSpeedLabel.text = "0.00"
         distanceLabel.text = "0.00"
-        timeLabel.text = "00:00:00"
+        timeLabel.text = "0:00:00"
         paceLabel.text = "0.00"
         speedLabel.text = "0.00"
+    }
+    
+    private func resetMiniUiValues() {
+        miniTimeLabel.text = "0:00:00"
+        miniAvgSpeedLabel.text = "0.00 mph"
+        miniDistanceLabel.text = "0.00"
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         stopButton.isHidden = true
+        resetButton.isHidden = true
+        
+        let navigationBarAppearance = self.navigationController?.navigationBar
+        let font = UIFont(name: "AvenirNext-Bold", size: 17)
+        if let font = font {
+            navigationBarAppearance?.titleTextAttributes = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.black]
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -87,9 +124,28 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func miniStartPressed() {
+        miniStartButton.isHidden = true
+        resetButton.isHidden = false
+        
+        miniTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.miniEachSecond), userInfo: nil, repeats: true)
+        
+        miniSeconds = 0.0
+        miniDistance = Measurement(value: 0, unit: UnitLength.meters)
+    }
+    
+    @IBAction func miniResetPressed() {
+        miniStartButton.isHidden = false
+        resetButton.isHidden = true
+        
+        miniTimer.invalidate()
+        
+        miniSeconds = 0.0
+        miniDistance = Measurement(value: 0, unit: UnitLength.meters)
+    }
 
     @IBAction func startPressed() {
-        UserDefaults.standard.removeObject(forKey: "secondsInactive")
         startButton.isHidden = true
         stopButton.isHidden = false
 
@@ -99,8 +155,6 @@ class ViewController: UIViewController {
 
         seconds = 0.0
         distance = Measurement(value: 0, unit: UnitLength.meters)
-
-        //mapView.hidden = false
     }
 
     @IBAction func stopPressed() {
@@ -143,10 +197,12 @@ class ViewController: UIViewController {
 
     func saveActionHandler(action: UIAlertAction) {
         timer.invalidate()
+        miniTimer.invalidate()
         locationManager.stopUpdatingLocation()
         
         saveDrive()
         resetUiValues()
+        resetMiniUiValues()
         
         let viewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailedViewController
         viewController.drive = savedDrive
@@ -155,9 +211,11 @@ class ViewController: UIViewController {
 
     func discardActionHandler(action: UIAlertAction) {
         timer.invalidate()
+        miniTimer.invalidate()
         locationManager.stopUpdatingLocation()
         
         resetUiValues()
+        resetMiniUiValues()
         
         self.navigationController?.popToRootViewController(animated: true)
     }
@@ -173,6 +231,7 @@ extension ViewController: CLLocationManagerDelegate {
             if let lastLocation = self.locations.last {
                 let delta = newLocation.distance(from: lastLocation)
                 distance = distance + Measurement(value: delta, unit: UnitLength.meters)
+                miniDistance = miniDistance + Measurement(value: delta, unit: UnitLength.meters)
                 speedLabel.text = String(format:"%.1f mph", (newLocation.speed * 2.23693629))
             } else {
                 speedLabel.text = "0.00 mph"
