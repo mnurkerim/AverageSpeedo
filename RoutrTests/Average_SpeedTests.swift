@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Average_Speed
+@testable import Routr
 
 class Average_SpeedTests: XCTestCase {
     

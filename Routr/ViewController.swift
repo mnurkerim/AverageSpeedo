@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         let navigationBarAppearance = self.navigationController?.navigationBar
         let font = UIFont(name: "AvenirNext-Bold", size: 17)
         if let font = font {
-            navigationBarAppearance?.titleTextAttributes = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.black]
+            navigationBarAppearance?.titleTextAttributes = [NSAttributedStringKey.font: font, NSAttributedStringKey.foregroundColor: UIColor.black]
         }
         
         //Prevent auto-lock
@@ -75,12 +75,12 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func eachSecond() {
+    @objc func eachSecond() {
         seconds += 1
         updateDisplay()
     }
     
-    func miniEachSecond() {
+    @objc func miniEachSecond() {
         miniSeconds += 1
         updateMiniDisplay()
     }
@@ -89,11 +89,11 @@ class ViewController: UIViewController {
         let newDrive = Drive(context: CoreDataStack.context)
         newDrive.distance = self.distance.value
         newDrive.duration = Int16(self.seconds as Double)
-        newDrive.timestamp = NSDate()
+        newDrive.timestamp = Date()
 
         for location in locations {
             let savedLocation = Location(context: CoreDataStack.context)
-            savedLocation.timestamp = location.timestamp as NSDate
+            savedLocation.timestamp = location.timestamp as Date
             savedLocation.latitude = location.coordinate.latitude
             savedLocation.longitude = location.coordinate.longitude
             newDrive.addToLocations(savedLocation)
