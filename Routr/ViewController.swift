@@ -61,6 +61,9 @@ class ViewController: UIViewController {
         if let font = font {
             navigationBarAppearance?.titleTextAttributes = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.black]
         }
+        
+        //Prevent auto-lock
+        UIApplication.shared.isIdleTimerDisabled = true
     }
 
     override func viewDidAppear(_ animated: Bool) {
