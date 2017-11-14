@@ -22,6 +22,7 @@
 		9DB8B54C1F63695100FBAFB2 /* FormatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8B54B1F63695100FBAFB2 /* FormatDisplay.swift */; };
 		9DB8B54E1F63704F00FBAFB2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8B54D1F63704F00FBAFB2 /* LocationManager.swift */; };
 		9DFEC14C1EDEFAF0008A1985 /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFEC14B1EDEFAF0008A1985 /* DetailedViewController.swift */; };
+		B9B98BD84729C39FB7FBEE76 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = B9B984ADFF9B62C1D8F1FD1A /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		9DB8B54B1F63695100FBAFB2 /* FormatDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatDisplay.swift; sourceTree = "<group>"; };
 		9DB8B54D1F63704F00FBAFB2 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		9DFEC14B1EDEFAF0008A1985 /* DetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
+		B9B984ADFF9B62C1D8F1FD1A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				9D954D3C1EDD908C008D50A2 /* RoutrTests */,
 				9D954D471EDD908C008D50A2 /* RoutrUITests */,
 				9D954D261EDD908C008D50A2 /* Products */,
+				B9B984ADFF9B62C1D8F1FD1A /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -310,6 +313,7 @@
 				9DFEC14C1EDEFAF0008A1985 /* DetailedViewController.swift in Sources */,
 				9D954D291EDD908C008D50A2 /* AppDelegate.swift in Sources */,
 				9DB8B5481F635C5C00FBAFB2 /* Routr.xcdatamodeld in Sources */,
+				B9B98BD84729C39FB7FBEE76 /* README.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
