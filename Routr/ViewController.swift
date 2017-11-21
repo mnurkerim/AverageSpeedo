@@ -131,7 +131,7 @@ class ViewController: UIViewController {
     private func startLocationUpdates() {
         locationManager.delegate = self
         locationManager.activityType = .automotiveNavigation
-        locationManager.distanceFilter = 10
+        locationManager.distanceFilter = kCLDistanceFilterNone
         locationManager.startUpdatingLocation()
     }
     
