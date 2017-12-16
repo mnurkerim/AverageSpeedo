@@ -22,7 +22,7 @@
 		9DB8B54C1F63695100FBAFB2 /* FormatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8B54B1F63695100FBAFB2 /* FormatDisplay.swift */; };
 		9DB8B54E1F63704F00FBAFB2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB8B54D1F63704F00FBAFB2 /* LocationManager.swift */; };
 		9DFEC14C1EDEFAF0008A1985 /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFEC14B1EDEFAF0008A1985 /* DetailedViewController.swift */; };
-		B9B98BD84729C39FB7FBEE76 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = B9B984ADFF9B62C1D8F1FD1A /* README.md */; };
+		D5F221641FE53B66004FF01D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B9B984ADFF9B62C1D8F1FD1A /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -276,6 +276,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5F221641FE53B66004FF01D /* README.md in Resources */,
 				9D954D331EDD908C008D50A2 /* LaunchScreen.storyboard in Resources */,
 				9D954D301EDD908C008D50A2 /* Assets.xcassets in Resources */,
 				9D954D2E1EDD908C008D50A2 /* Main.storyboard in Resources */,
@@ -313,7 +314,6 @@
 				9DFEC14C1EDEFAF0008A1985 /* DetailedViewController.swift in Sources */,
 				9D954D291EDD908C008D50A2 /* AppDelegate.swift in Sources */,
 				9DB8B5481F635C5C00FBAFB2 /* Routr.xcdatamodeld in Sources */,
-				B9B98BD84729C39FB7FBEE76 /* README.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,7 +482,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MoApps.Routr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -496,7 +496,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MoApps.Routr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
